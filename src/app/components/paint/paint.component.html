@@ -1,0 +1,80 @@
+<div class="container-fluid" style="height: 100vh;">
+    <div class="row h-100 align-items-stretch">
+
+        <div class="col-md-2" style="background-color: #f4f4f4; padding: 20px;">
+            <h1>Tools</h1>
+            <div class="mt-3">Color:
+                <input [(colorPicker)]="draw_color" [style.background]="draw_color" style="width: 50px;"
+                    (click)="TriggerPen()" />
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-sm-3">
+                    <div class="color-box bg-dark" (click)='ChangeColor("#000000")' (click)="TriggerPen()"></div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="color-box bg-primary" (click)='ChangeColor("#0000FF")' (click)="TriggerPen()"></div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="color-box bg-danger" (click)='ChangeColor("#C70039 ")' (click)="TriggerPen()"></div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="color-box bg-success" (click)='ChangeColor("#008000")' (click)="TriggerPen()"></div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="color-box bg-warning" (click)='ChangeColor("#FFC300")' (click)="TriggerPen()"></div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div>Size
+                    <img src="https://img.icons8.com/?size=20&id=R5YMXudYjnK2&format=png&color=000000" />
+                </div>
+                <input type="range" [(ngModel)]="penSize" [min]="1" [max]="10" class="w-75"
+                    (input)="ChangePenSize($event)"> {{penSize}}
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <button id="undoCanvas" class="btn btn-primary" (click)="ClickUndo($event)">Undo
+                        <img src="https://img.icons8.com/?size=25&id=QXETd5g3MDpT&format=png&color=000000" />
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-danger" (click)="ClearCanvas(false)">Clear
+                        <img src="https://img.icons8.com/?size=25&id=j2dJjJUSwDCV&format=png&color=000000" />
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-danger" (click)="ClearCanvas(true)" style="font-size: 55%;">Clear(keep textbox) 
+                        <img src="https://img.icons8.com/?size=25&id=j2dJjJUSwDCV&format=png&color=000000" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <button class="btn btn-warning" (click)="TriggerEraser()">
+                    Eraser
+                    <img src="https://img.icons8.com/?size=25&id=xXHEIuHyuJ5y&format=png&color=000000" />
+                </button>
+            </div>
+
+            <div class="mt-3">
+                <div>
+                    Text box
+                </div>
+                <button class="btn" (click)="CreateTextBox()">
+                    <img src="https://img.icons8.com/?size=50&id=BijzNrcR4zEY&format=png&color=000000"/>
+                </button>
+            </div>
+
+           
+        </div>
+
+        <div class="col-md-10 position-relative" style="background-color: #fff;">
+            <ng-container #textboxContainer></ng-container>
+            <canvas class="myCanvas" #canvas [width]="500" [height]="500"
+                tabindex="0"
+                (click)="SetCanvasFocus()"
+            ></canvas>
+        </div>
+    </div>
+</div>

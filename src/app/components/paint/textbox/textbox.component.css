@@ -1,0 +1,137 @@
+.frame-wrapper {
+    position: absolute;
+    /* width: 150px; */
+    /* height: 50px; */
+    /* border: 2px solid black; */
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    /* border: 1px solid black; */
+    white-space: pre;
+    /* hoặc nowrap */
+    word-wrap: normal;
+    overflow-wrap: normal;
+}
+
+.content-wrapper {
+    /* display: inline-block; */
+    position: absolute;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.top-bar-wrapper {
+    width: 100%;
+    height: 5px;
+    background-color: lightblue;
+    /* display: none; */
+    position: absolute;
+    cursor: grab;
+}
+
+
+.resizers {
+    /* display: none; */
+    box-sizing: border-box;
+}
+
+.resizers .resizer {
+    opacity: 1;
+    width: 3px;
+    height: 3px;
+    border-radius: 1px;
+    /* background: black; */
+    border: 1px solid black;
+    position: absolute;
+}
+
+.resizers .resizer.right {
+    top: 0;
+    right: -3px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resizers .resizer.bottom {
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    cursor: ns-resize;
+}
+
+.resizers .resizer.left {
+    top: 0;
+    left: -3px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resizers .resizer.top {
+    top: -3px;
+    left: 0;
+    width: 100%;
+    cursor: ns-resize;
+}
+
+.resizers .resizer.bottom-right {
+    right: -3px;
+    bottom: -3px;
+    cursor: nwse-resize;
+}
+
+.resizers .resizer.bottom-left {
+    left: -3px;
+    bottom: -3px;
+    cursor: nesw-resize;
+}
+
+.resizers .resizer.top-right {
+    right: -3px;
+    top: -3px;
+    cursor: nesw-resize;
+}
+
+.resizers .resizer.top-left {
+    left: -3px;
+    top: -3px;
+    cursor: nwse-resize;
+}
+
+.resizers .resizer.deleteButton {
+    display: flex;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    background-color: red;
+    right: -15px;
+    top: -15px;
+    justify-content: center;
+    align-items:center;
+    font-size: 10px;
+}
+
+
+.blink-color {
+    animation: blink-color-animation 0.5s infinite;
+}
+
+@keyframes blink-color-animation {
+    0% {
+        background-color: violet;
+    }
+
+    50% {
+        background-color: pink;
+    }
+
+    100% {
+        background-color: violet;
+    }
+}
